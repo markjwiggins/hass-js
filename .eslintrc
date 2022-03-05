@@ -1,0 +1,25 @@
+// 20211119112847
+// https://raw.githubusercontent.com/markwiggins-stx/seaapi-core/main/.eslintrc?token=AQABKFOR24C6E4TCOW3AQZLBS6FKU
+
+{
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "import/extensions": "off",
+    "semi": 1,
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "printWidth": 120
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
+}
