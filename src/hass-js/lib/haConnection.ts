@@ -14,6 +14,7 @@ export interface IHassConnection {
 }
 
 export let connection: Connection;
+export let entities: HassEntities = {};
 
 export const connect = async ({ hassUrl, hassToken }: IHassConnection) => {
   if (!hassUrl) throw new Error("HASS URL not found");
@@ -26,11 +27,8 @@ export const connect = async ({ hassUrl, hassToken }: IHassConnection) => {
     createSocket: async () => createSocket(auth, true),
   });
 
-  let entities: HassEntities = {};
   subscribeEntities(connection, async (res) => (entities = res));
 
   // TODO: Subscribe to events for automation support
   // connection.subscribeEvents(({ data }: any) => runAutomations(data), "state_changed");
-
-  return { connection, entities };
 };
