@@ -29,5 +29,8 @@ export const connect = async ({ hassUrl, hassToken }: IHassConnection) => {
   let entities: HassEntities = {};
   subscribeEntities(connection, async (res) => (entities = res));
 
+  // TODO: Subscribe to events for automation support
+  // connection.subscribeEvents(({ data }: any) => runAutomations(data), "state_changed");
+
   return { connection, entities };
 };
